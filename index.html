@@ -30,8 +30,8 @@ function go() {
     }
     if (exclude != ""){
         add = ""
-        for (i = 0; i < extarray.length; i++) {
         var array = exclude.split(",");
+        for (i = 0; i < array.length; i++) {
         add += "-" + array[i].replace(/^\s/g, '') 
         }
         arg += add + ' '
