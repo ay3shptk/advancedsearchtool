@@ -25,12 +25,12 @@ function go() {
 
         }
         add = "(" + add + ")"
-        arg += add
+        arg += add + ' '
     }
     if (exclude != ""){
         var array = exclude.split(",");
         add += "-" + array[i].replace(/^\s/g, '').replace(/$\s/g, '') +' '
-        arg += add
+        arg += add + ' '
     }
     if (site != ""){
         var array = site.split(",");
@@ -38,18 +38,20 @@ function go() {
             if (i != 0 && i != array.length) { 
                 add += "|"
             }
-            add += "sitw:" + extarray[i].replace(/^\s/g, '').replace(/$\s/g, '')
+            add += "site:" + extarray[i].replace(/^\s/g, '').replace(/$\s/g, '')
 
         }
         add = "(" + add + ")"
-        arg += add
+        arg += add + ' '
     }
     if (from != "" && till !=""){
         add += ' daterange:' + from + '..' + till
-        arg += add
+        arg += add + ' '
     }
 
-    if (term == ""){alert('Enter a search term')}
+    if (term == ""){alert('Enter a search term')} else {
+        arg += term + ' '
+    }
     console.log(arg)
     //window.location.replace('https://google.com/search?q=' + arg
    }
