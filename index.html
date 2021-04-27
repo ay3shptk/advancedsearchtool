@@ -44,10 +44,12 @@ function go() {
         add = "(" + add + ")"
         arg += add
     }
-    if (from != "" && till!=""){
+    if (from != "" && till !=""){
         add += ' daterange:' + from + '..' + till
         arg += add
     }
+
+    if (term == ""){alert('Enter a search term')}
     console.log(arg)
     //window.location.replace('https://google.com/search?q=' + arg
    }
