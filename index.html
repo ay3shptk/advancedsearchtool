@@ -29,7 +29,7 @@ function go() {
     }
     if (exclude != ""){
         var array = exclude.split(",");
-        add += "-" + array[i].replace(/^\s/g, '').replace(/\s/$g, '') + ' '
+        add += "-" + array[i].replace(/^\s/g, '').replace(/\s$/g, '') + ' '
         arg += add + ' '
     }
     if (site != ""){
