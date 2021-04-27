@@ -30,8 +30,11 @@ function go() {
     }
     if (exclude != ""){
         add = ""
+        for (i = 0; i < extarray.length; i++) {
         var array = exclude.split(",");
         add += "-" + array[i].replace(/^\s/g, '') 
+        }
+        arg += add + ' '
     }
     if (site != ""){
         add = ""
