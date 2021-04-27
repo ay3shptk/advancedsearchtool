@@ -1,0 +1,19 @@
+TERM<input id="term"><br><br>
+SITE<input id="site"><br><br>
+EXCLUDE<input id="exclude"><br><br>
+EXTENTION<input id="ext"><br><br>
+FROM <input id="from" type="date"><br><br>
+TILL <input id="till" type="date"><br><br>
+
+<button onclick="yo()">nnn</button>
+<script>
+function yo() {
+    var term = document.getElementById("term").value;
+    var ext = document.getElementById("ext").value;
+    var site = document.getElementById("site").value;
+    var exclude = document.getElementById("exclude").value;
+    var from = document.getElementById("from").value;
+    var till = document.getElementById("till").value;
+    //window.location.replace('https://google.com/search?q=' + term + ' filetype:' + ext +' -' + exclude + ' site:' + site + " daterange:" + from + ".." + till)
+   }
+</script>
