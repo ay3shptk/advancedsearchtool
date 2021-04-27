@@ -15,7 +15,7 @@ function go() {
     var till = document.getElementById("till").value;
     var arg = ""
     var add = ""
-    if (ext == ""){} else {
+    if (ext != ""){
         var extarray = ext.split(",");
         for (i = 0; i < extarray.length; i++) {
             if (i != 0 && i != extarray.length) { 
@@ -27,9 +27,21 @@ function go() {
         add = "(" + add + ")"
         arg += add
     }
-    if (exclude == ""){} else {
+    if (exclude != ""){
         var array = exckude.split(",");
         add += "-" + array[i].replace(/^\s/g, '').replace(/$\s/g, '') +' '
+        arg += add
+    }
+    if (site != ""){
+        var array = site.split(",");
+        for (i = 0; i < array.length; i++) {
+            if (i != 0 && i != array.length) { 
+                add += "|"
+            }
+            add += "sitw:" + extarray[i].replace(/^\s/g, '').replace(/$\s/g, '')
+
+        }
+        add = "(" + add + ")"
         arg += add
     }
     console.log(arg)
