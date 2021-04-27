@@ -21,10 +21,15 @@ function go() {
             if (i != 0 && i != extarray.length) { 
                 add += "|"
             }
-            add += "filetype:" + extarray[i].replace(/^\s/g, '')
+            add += "filetype:" + extarray[i].replace(/^\s/g, '').replace(/$\s/g, '')
 
         }
         add = "(" + add + ")"
+        arg += add
+    }
+    if (exclude == ""){} else {
+        var array = exckude.split(",");
+        add += "-" + array[i].replace(/^\s/g, '').replace(/$\s/g, '') +' '
         arg += add
     }
     console.log(arg)
