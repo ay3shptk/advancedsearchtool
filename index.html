@@ -31,7 +31,7 @@ function go() {
     if (exclude != ""){
         add = ""
         var array = exclude.split(",");
-        add += "-" + array[i].replace(/^\s/g, '').replace(/\s\b/g, '') + ' '
+        add += "-" + array[i].replace(/^\s/g, '') + ' '
         arg += add + ' '
     }
     if (site != ""){
