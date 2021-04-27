@@ -28,7 +28,7 @@ function go() {
         arg += add
     }
     if (exclude != ""){
-        var array = exckude.split(",");
+        var array = exclude.split(",");
         add += "-" + array[i].replace(/^\s/g, '').replace(/$\s/g, '') +' '
         arg += add
     }
@@ -44,7 +44,11 @@ function go() {
         add = "(" + add + ")"
         arg += add
     }
+    if (from != "" && till!=""){
+        add += ' daterange:' + from + '..' + till
+        arg += add
+    }
     console.log(arg)
-    //window.location.replace('https://google.com/search?q=' + term + ' filetype:' + ext +' -' + exclude + ' site:' + site + " daterange:" + from + ".." + till)
+    //window.location.replace('https://google.com/search?q=' + arg
    }
 </script>
