@@ -16,6 +16,7 @@ function go() {
     var arg = ""
     var add = ""
     if (ext != ""){
+        add = ""
         var extarray = ext.split(",");
         for (i = 0; i < extarray.length; i++) {
             if (i != 0 && i != extarray.length) { 
@@ -28,11 +29,13 @@ function go() {
         arg += add + ' '
     }
     if (exclude != ""){
+        add = ""
         var array = exclude.split(",");
         add += "-" + array[i].replace(/^\s/g, '').replace(/\s\b/g, '') + ' '
         arg += add + ' '
     }
     if (site != ""){
+        add = ""
         var array = site.split(",");
         for (i = 0; i < array.length; i++) {
             if (i != 0 && i != array.length) { 
@@ -45,6 +48,7 @@ function go() {
         arg += add + ' '
     }
     if (from != "" && till !=""){
+        add = ""
         add += ' daterange:' + from + '..' + till
         arg += add + ' '
     }
