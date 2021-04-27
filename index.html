@@ -58,7 +58,6 @@ function go() {
     if (term == ""){alert('Enter a search term')} else {
         arg += term + ' '
     }
-    console.log(arg)
-    //window.location.replace('https://google.com/search?q=' + arg
-   }
+    
+    window.location.replace('https://google.com/search?q=' +encodeURIComponent(arg)   }
 </script>
