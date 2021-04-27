@@ -1,9 +1,17 @@
-TERM <input id="term"><br><br>
-SITE <input id="site"><br><br>
-EXCLUDE <input id="exclude"><br><br>
-EXTENTION <input id="ext"><br><br>
-FROM <input id="from" type="date"><br><br>
-TILL <input id="till" type="date"><br><br>
+<head><link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<h1>Google Advanced Search</h1>
+Search term: <br><input id="term" style="width: 80%; height: 30px;"><br>Choose as many as you want (optional):<br>Has to be in title <input type="checkbox" id="title"> Has to be in text <input type="checkbox" id="text"> Has to be in url <input type="checkbox" id="url"><br><br>
+Enter words in "" to make them compusory in results. 
+<br>Use * as a wildcard character (for eg. Steve * from Apple)<br><br>
+
+<h3>Arguments (enter each argument comma-separated)</h3>
+Sites:<br> <input style="width: 80%; height: 30px;" id="site"><br>Allow related sites <input type="checkbox" id="related">
+<br><br>
+Exclude these terms: <br><input  style="width: 80%; height: 30px;"id="exclude"><br><br>
+File extensions: <br><input  style="width: 80%; height: 30px;"id="ext"><br><br>
+<h3>Date range (might not be accurate)</h3>
+FROM <input style="width: 80%; height: 30px;" id="from" type="date"><br><br>
+TILL <input  style="width: 80%; height: 30px;" id="till" type="date"><br><br>
 <button onclick="go()">Search</button>
 <script>
 function go() {
@@ -13,6 +21,12 @@ function go() {
     var exclude = document.getElementById("exclude").value;
     var from = document.getElementById("from").value;
     var till = document.getElementById("till").value;
+    var title = document.getElementById("title").checked;
+    var text = document.getElementById("text").checked;
+    var url = document.getElementById("url").checked;
+    var related = document.getElementById("related").checked;
+
+
     var arg = ""
     var add = ""
     if (ext != ""){
@@ -25,6 +39,7 @@ function go() {
             add += "filetype:" + extarray[i].replace(/^\s/g, '')
 
         }
+ 
         add = "(" + add + ")"
         arg += add + ' '
     }
@@ -44,8 +59,13 @@ function go() {
                 add += "|"
             }
             add += "site:" + array[i].replace(/^\s/g, '')
+            if ( related = true) {
+                add += '|' + "related:" + array[i].replace(/^\s/g, '')
+
+            }
 
         }
+
         add = "(" + add + ")"
         arg += add + ' '
     }
@@ -56,8 +76,36 @@ function go() {
     }
 
     if (term == ""){alert('Enter a search term')} else {
+        if (title == false && text == false && url == false) {
         arg += term + ' '
+    } else {
+        var i = 0
+        add += "( "
+        if (title == true){
+            if (i != 0) {
+                add += "|"
+            }
+            add += "intitle:" + term;
+            i++
+        }
+        if (text == true){
+            if (i != 0) {
+                add += "|"
+            }
+            add += "intext:" + term;
+            i++
+        }
+        if (url == true){
+            if (i != 0) {
+                add += "|"
+            }
+            add += "inurl:" + term;
+            i++
+        }
+        add += ")"
+        arg += add
     }
+}
     console.log(arg)
     //window.location.replace('https://google.com/search?q=' + arg
    }
