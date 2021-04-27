@@ -22,7 +22,7 @@ function go() {
             if (i != 0 && i != extarray.length) { 
                 add += "|"
             }
-            add += "filetype:" + extarray[i].replace(/^\s/g, '').replace(/$\s/g, '')
+            add += "filetype:" + extarray[i].replace(/^\s/g, '')
 
         }
         add = "(" + add + ")"
@@ -32,7 +32,7 @@ function go() {
         add = ""
         var array = exclude.split(",");
         for (i = 0; i < array.length; i++) {
-        add += "-" + array[i].replace(/^\s/g, '') 
+        add += "-" + array[i].replace(/^\s/g, '')  + ' '
         }
         arg += add + ' '
     }
@@ -43,7 +43,7 @@ function go() {
             if (i != 0 && i != array.length) { 
                 add += "|"
             }
-            add += "site:" + extarray[i].replace(/^\s/g, '').replace(/$\s/g, '')
+            add += "site:" + extarray[i].replace(/^\s/g, '')
 
         }
         add = "(" + add + ")"
